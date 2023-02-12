@@ -5,7 +5,12 @@ import { PollModule } from './poll/poll.module';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Poll } from './poll/entities/poll.entity';
-const entities = [Poll];
+import { PollRespModule } from './poll-resp/poll-resp.module';
+import { PollResp } from './poll-resp/entities/poll-resp.entity';
+// import { PollSocketModule } from './poll-socket/poll-socket.module';
+import { OptionCounterModule } from './option-counter/option-counter.module';
+import { OptionCounter } from './option-counter/entities/option-counter.entity';
+const entities = [Poll, PollResp, OptionCounter];
 
 @Module({
   imports: [
@@ -23,6 +28,9 @@ const entities = [Poll];
       synchronize: true,
     }),
     PollModule,
+    PollRespModule,
+    OptionCounterModule,
+    // PollSocketModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -19,9 +19,14 @@ export class PollController {
   create(@Body() createPollDto: CreatePollDto) {
     return this.pollService.create(createPollDto);
   }
+  // @Get()
+  // getUsers() {
+  //   return this.pollService.get();
+  // }
 
   @Get()
   findAll() {
+    // return this.pollService.get();
     return this.pollService.findAll();
   }
 

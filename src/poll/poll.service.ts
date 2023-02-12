@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -16,16 +17,18 @@ export class PollService {
     return this.pollRepository.find();
   }
 
-  create(createPollDto: CreatePollDto) {
-    return 'This action adds a new poll';
+  async create(createPollDto: CreatePollDto) {
+    return this.pollRepository.save(createPollDto);
   }
 
-  findAll() {
-    return `This action returns all poll`;
+  findAll(): Promise<Poll[]> {
+    // return `This action returns all poll`;
+    return this.pollRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action  returns a #${id} poll`;
+  findOne(pollID: number) {
+    // return `This action  returns a #${id} poll`;
+    return this.pollRepository.findOne({ where: { pollID } });
   }
 
   update(id: number, updatePollDto: UpdatePollDto) {
