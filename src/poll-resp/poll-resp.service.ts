@@ -9,19 +9,19 @@ import { PollResp } from './entities/poll-resp.entity';
 export class PollRespService {
   constructor(
     @InjectRepository(PollResp)
-    private pollRepository: Repository<PollResp>,
+    private pollRespRepository: Repository<PollResp>,
   ) {}
 
   create(CreatePollRespDto: CreatePollRespDto) {
-    return this.pollRepository.save(CreatePollRespDto);
+    return this.pollRespRepository.save(CreatePollRespDto);
   }
 
   findAll() {
-    return this.pollRepository.find();
+    return this.pollRespRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} pollResp`;
+  findOne(pollID: number) {
+    return this.pollRespRepository.findOne({ where: { pollID } });
   }
 
   update(id: number, updatePollRespDto: UpdatePollRespDto) {

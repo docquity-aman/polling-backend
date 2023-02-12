@@ -16,4 +16,7 @@ export class OptionCounter {
 
   @Column()
   countOptD: number;
+
+  @Column()
+  totalResponse: number;
 }

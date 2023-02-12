@@ -8,16 +8,16 @@ import {
   Delete,
 } from '@nestjs/common';
 import { OptionCounterService } from './option-counter.service';
-import { CreateOptionCounterDto } from './dto/create-option-counter.dto';
 import { UpdateOptionCounterDto } from './dto/update-option-counter.dto';
+import { PollResponseDTO } from './dto/poll.response.dto';
 
 @Controller('option-counter')
 export class OptionCounterController {
   constructor(private readonly optionCounterService: OptionCounterService) {}
 
   @Post()
-  create(@Body() createOptionCounterDto: CreateOptionCounterDto) {
-    return this.optionCounterService.create(createOptionCounterDto);
+  create(@Body() pollResponse: PollResponseDTO) {
+    return this.optionCounterService.create(pollResponse);
   }
 
   @Get()

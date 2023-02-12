@@ -15,4 +15,7 @@ export class CreateOptionCounterDto {
 
   @IsNumber()
   countOptD: number;
+
+  @IsNumber()
+  totalResponse: number;
 }
