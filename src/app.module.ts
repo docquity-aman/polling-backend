@@ -4,7 +4,8 @@ import { AppService } from './app.service';
 import { PollModule } from './poll/poll.module';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-const entities = [User];
+import { Poll } from './poll/entities/poll.entity';
+const entities = [Poll];
 
 @Module({
   imports: [
